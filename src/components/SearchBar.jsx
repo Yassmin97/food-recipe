@@ -43,7 +43,7 @@ const SearchBar = ({setMeals}) => {
     {/* Search Box */}
     <form className="relative w-full" onSubmit={searchMeals}>
       <div className="flex items-center bg-white rounded-lg shadow-lg p-2">
-        <Search className="text-gray-500 mx-3" size={25} />
+        <Search className="text-[#99154E] mx-3" size={25} />
 
         <input
           type="text"
@@ -54,7 +54,7 @@ const SearchBar = ({setMeals}) => {
 
         <button
           type="submit"
-          className="bg-[#5F6F65] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#4a5a54] transition" >
+          className="bg-[#FFC93C] text-[#99154E] px-6 py-3 rounded-lg font-bold hover:bg-[#FFBBCC] transition" >
           Search
         </button>
       </div>

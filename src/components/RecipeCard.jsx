@@ -32,7 +32,7 @@ const RecipeCard =({meal, onFavoritesToggle})=> { //Takes meal as a prop (an obj
     }
     
     return (
-        <div className="flex flex-col rounded-md bg-[#C9DABF] overflow-hidden relative">
+        <div className="flex flex-col rounded-md bg-[#ffc83c90] overflow-hidden relative">
         <div className="relative h-42">
           {/* Heart icon positioned inside image */}
           <div
@@ -60,8 +60,8 @@ const RecipeCard =({meal, onFavoritesToggle})=> { //Takes meal as a prop (an obj
         <p className="text-[#39483e] font-semibold pl-2 pt-2">{meal.strCategory}</p>
         
         <div className="flex gap-2 mt-2 m-2">
-            <div className="flex gap-1 bg-[#ffffff] items-center p-1.5 rounded-md">
-                <span className="text-sm text-[#5F6F65] tracking-tighter font font-semibold">{meal.strArea} </span>                
+            <div className="flex gap-1 bg-[#99154E] items-center p-1.5 rounded-md">
+                <span className="text-sm text-white tracking-tighter font font-semibold">{meal.strArea} </span>                
                 </div>
             </div>
         </div>

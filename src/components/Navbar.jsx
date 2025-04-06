@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-[#5f6f65] fixed top-0 left-0 w-full shadow-lg z-50">
+    <nav className="bg-[#99154E] fixed top-0 left-0 w-full shadow-lg z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
       {/* Logo */}
       <div className="flex items-center">
@@ -20,13 +20,13 @@ const Navbar = () => {
       {/* Navigation Links */}
       <ul className="flex space-x-8">
         <li>
-          <Link to="/" className="text-[#C9DABF] flex items-center gap-2 hover:text-black font-semibold text-lg transition duration-300">
+          <Link to="/" className="flex items-center gap-2 hover:text-black font-semibold text-lg transition duration-300">
             <Home size={28} color="white"/>
             <span className="hidden md:inline text-white">Home</span>
           </Link>
         </li>
         <li>
-          <Link to="/favorites" className="text-[#C9DABF] flex items-center gap-2 hover:text-black font-semibold text-lg transition duration-300">
+          <Link to="/favorites" className="flex items-center gap-2 hover:text-black font-semibold text-lg transition duration-300">
             <Heart size={28} color="white" />
             <span className="hidden md:inline text-white">Favorites</span>
           </Link>
