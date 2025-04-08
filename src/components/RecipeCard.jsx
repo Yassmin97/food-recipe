@@ -1,32 +1,32 @@
 import { Heart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
 import { useEffect, useState } from "react";
 
 
-const RecipeCard =({meal, onFavoritesToggle})=> { //Takes meal as a prop (an object containing recipe details).
-    const [isFavorite, setIsFavorite] = useState(false) // useState för att hantera om en rätt är favorit direkt i kortet
+const RecipeCard =({meal, onFavoritesToggle})=> { 
+    const [isFavorite, setIsFavorite] = useState(false) 
     
-    useEffect(() => {
+    useEffect(() => {   
         const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
         setIsFavorite(savedFavorites.some(fav => fav.idMeal === meal.idMeal))
     }, [meal.idMeal]);
 
-    //add/delete a fav
+    
     const toggleFavorite = (e) => {
-        e.stopPropagation()
-        e.preventDefault()
+        e.stopPropagation() 
+        e.preventDefault()  
 
         let updatedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
         if (isFavorite) {
-            updatedFavorites = updatedFavorites.filter((fav) => fav.idMeal !== meal.idMeal);
+            updatedFavorites = updatedFavorites.filter((fav) => fav.idMeal !== meal.idMeal); 
         }else{
-            updatedFavorites.push(meal)
+            updatedFavorites.push(meal) 
         }
-        localStorage.setItem("favorites", JSON.stringify(updatedFavorites))
-            setIsFavorite(!isFavorite);
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites)) 
+            setIsFavorite(!isFavorite); 
 
-        if (onFavoritesToggle){
+        if (onFavoritesToggle){ 
             onFavoritesToggle()
         }    
     }
@@ -34,7 +34,7 @@ const RecipeCard =({meal, onFavoritesToggle})=> { //Takes meal as a prop (an obj
     return (
         <div className="flex flex-col rounded-md bg-[#ffc83c90] overflow-hidden relative">
         <div className="relative h-42">
-          {/* Heart icon positioned inside image */}
+       
           <div
             className="absolute top-2 right-2 bg-white rounded-full p-1 cursor-pointer z-10"
             onClick={toggleFavorite}

@@ -1,26 +1,34 @@
 import { Search } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const SearchBar = ({setMeals}) => {
-  const [query, setQuery] = useState("")
+const SearchBar = ({ setSearchMeals, setMeals }) => { 
+  const [query, setQuery] = useState("");
+  const searchRef = useRef(null);
 
-  const searchMeals = async (e) => {
-    e.preventDefault();
-    if (!query) return;
+  useEffect(() => {
+    searchRef.current.focus()
+  }, [])
+
+  const searchMeals = async (e) => {   
+    e.preventDefault(); 
+    if (!query) return; 
   
     try {
       const response = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}` 
       );
-      const data = await response.json();
-      if (data.meals) {
-        setMeals(data.meals); 
+      const data = await response.json(); 
+
+      if (data.meals) { 
+        setMeals(data.meals);  
+        setSearchMeals(true);
       } else {
         setMeals([]); 
+        setSearchMeals(true);
       }
     } catch (error) {
       console.error("Error fetching meals:", error);
-      setMeals([]); // Clears list on API failure
+      setMeals([]); 
     }
   };
   
@@ -50,11 +58,12 @@ const SearchBar = ({setMeals}) => {
           className="flex-grow px-3 py-3 text-lg border-none outline-none rounded-lg"
           placeholder="What do you want to cook today?"
           value={query}
+          ref={searchRef}
           onChange={(e) => setQuery(e.target.value)} />
 
         <button
           type="submit"
-          className="bg-[#FFC93C] text-[#99154E] px-6 py-3 rounded-lg font-bold hover:bg-[#FFBBCC] transition" >
+          className="bg-[#FFC93C] text-[#99154E] px-6 py-3 rounded-lg font-bold hover:bg-[#ffcf88] transition" >
           Search
         </button>
       </div>
